@@ -8,9 +8,12 @@ import { FiTrash2 } from 'react-icons/fi'
 import CartItem from './CartItem.jsx'
 //import sidebar context
 import { SidebarContext } from '../contexts/SidebarContext'
+//import cart context
+import { CartContext } from '../contexts/CartContext'
 
 const Sidebar = () => {
   const {sidebarOpen, handleClose} = useContext(SidebarContext)
+  const { cart } = useContext(CartContext)
   return (
     <div className={`${sidebarOpen ? 'right-0' : '-right-full'} w-full bg-white fixed top-0 h-full shadow-2xl md:w-[35vw] xl:max-w-[30vh] transition-all duration-300 z-20 px-4 lg:px-[35px] `}>
       <div className='flex items-center justify-between py-6 border-b'>
@@ -19,6 +22,12 @@ const Sidebar = () => {
         <div onClick={handleClose} className='cursor-pointer w-8 h-8 flex justify-center items-center'>
           <IoMdArrowForward className='text-2xl' />
         </div>
+      </div>
+      <div>
+        {/* cart item */}
+        {cart.map((item) => {
+          return <CartItem key={item.id} item={item} />
+        })}
       </div>
     </div>
   )
