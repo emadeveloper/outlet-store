@@ -35,7 +35,7 @@ const CartItem = ({ item }) => {
               {/* quantity */}
               <div className="flex flex-1 max-w-[100px] items-center h-full border text-primary font-medium">
                 {/* minus icon */}
-                <div onClick={()=>{decreaseAmount(id)}} className="flex-1 flex justify-center items-center cursor-pointer">
+                <div onClick={()=>{decreaseAmount(id)}} className="flex-1 flex justify-center items-center cursor-pointer h-full">
                   <IoMdRemove />
                 </div>
                   {/* amount */}
